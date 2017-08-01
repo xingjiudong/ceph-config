@@ -9,3 +9,4 @@ docker run --rm \
 -e ETCD_CLIENT_IP=${ETCD_CLIENT_IP:-127.0.0.1} \
 -e CLUSTER=${CLUSTER_NAME:-ceph} \
 xingjiudong/ceph-get-config
+
