@@ -1,14 +1,11 @@
-FROM ubuntu:16.04 
+FROM buildpack-deps:stretch-curl 
 MAINTAINER XJD 25635680@qq.com
 
-# Confd information. 
+# Env information. 
 ENV ETCD_VERSION v2.3.7
 ENV CONFD_VERSION 0.11.0 
-ENV ETCD_CLIENT_IP etcd_client_ip
-ENV CLUSTER cluster_name
-
-RUN apt-get update && apt-get install -y wget --no-install-recommends \
-    && rm -rf /var/lib/apt/lists/*
+ENV ETCD_CLIENT_IP 127.0.0.1  
+ENV CLUSTER ceph 
 
 # Install etcdctl.
 RUN wget https://github.com/coreos/etcd/releases/download/${ETCD_VERSION}/etcd-${ETCD_VERSION}-linux-amd64.tar.gz --no-check-certificate && \
